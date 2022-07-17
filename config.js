@@ -26,14 +26,14 @@ var exports_2 = {
 
 // these exports are for uploading to heroku
 var exports_3 = {
-    'client-domain': 'https://btgk-1612422.herokuapp.com/',
-    'server-domain': 'https://btcn06-1612422.herokuapp.com/',
+    'client-domain': 'https://web-caro-online-client.herokuapp.com/',
+    'server-domain': 'https://web-caro-online-server.herokuapp.com/',
     'database': {
-        'host': 'sql12.freemysqlhosting.net',
+        'host': 'sql6.freemysqlhosting.net',
         'port': '3306',
-        'user': 'sql12308370',
-        'password': 'xLicY5Js7i',
-        'database': 'sql12308370'
+        'user': 'sql6507055',
+        'password': 'rP7iBhQvuM',
+        'database': 'sql6507055'
     }
 }
 

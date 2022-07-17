@@ -16,11 +16,11 @@ var exports_2 = {
     'client-domain': '//localhost:6969/',
     'server-domain': '//localhost:3000/',
     'database': {
-        'host': 'sql12.freemysqlhosting.net',
+        'host': 'sql6.freemysqlhosting.net',
         'port': '3306',
-        'user': 'sql12308370',
-        'password': 'xLicY5Js7i',
-        'database': 'sql12308370'
+        'user': 'sql6507055',
+        'password': 'rP7iBhQvuM',
+        'database': 'sql6507055'
     }
 }
 
@@ -37,4 +37,4 @@ var exports_3 = {
     }
 }
 
-module.exports = exports_1; 
+module.exports = exports_3; 

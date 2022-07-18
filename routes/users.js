@@ -21,6 +21,15 @@ router.post('/', (req, res, next) => {
     });
 });
 
+router.post('/user-list', (req, res, next) => {
+    userModel.all().then(rows => {
+        res.status(200).json(rows);
+    }).catch(err => {
+        res.status(400).json({
+            message: 'Connect database fail'
+        });
+    });
+});
 // register a new user
 router.post('/register', (req, res, next) => {
 

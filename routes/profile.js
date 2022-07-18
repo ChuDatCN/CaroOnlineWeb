@@ -18,7 +18,7 @@ router.get('/me', (req, res, next) => {
     }
     else {
         res.status(400).json({
-            message: 'Đã xảy ra lỗi, vui lòng thử lại'
+            message: 'Error! Please try again'
         })
     }
 });

@@ -32,7 +32,7 @@ router.post('/register', (req, res, next) => {
     // check params
     if (!username || !password || !email || !fullname) {
         res.status(400).json({
-            message: 'Vui lòng nhập đầy đủ thông tin'
+            message: 'Please fill all the information!'
         });
     }
     else {
@@ -51,7 +51,7 @@ router.post('/register', (req, res, next) => {
         // add to database
         userModel.add(entity).then(id => {
             res.status(200).json({
-                message: 'Đăng ký tài khoản thành công'
+                message: 'SUCCESS'
             });
         }).catch(err => {
 
@@ -59,7 +59,7 @@ router.post('/register', (req, res, next) => {
 
             switch (err.code) {
                 case 'ER_DUP_ENTRY':
-                    errMessage = 'Tên đăng nhập đã tồn tại';
+                    errMessage = 'Username has already existed';
                     break;
             }
 
@@ -133,14 +133,14 @@ router.post('/changeinfo', passport.authenticate('jwt', {session: false}), (req,
     // check params
     if (!username || !email || !fullname) {
         res.status(400).json({
-            message: 'Vui lòng nhập đầy đủ thông tin'
+            message: 'Please fill all the information!'
         });
     }
     else {
         userModel.get(username).then(rows => {
             if (rows.length === 0) {
                 return res.status(400).json({
-                    message: 'Tài khoản không tồn tại'
+                    message: 'Account does not exist'
                 });
             }
             var user = rows[0];
@@ -159,7 +159,7 @@ router.post('/changeinfo', passport.authenticate('jwt', {session: false}), (req,
                 var ret = bcrypt.compareSync(oldPassword, user.password);
                 if (!ret) {
                     return res.status(400).json({
-                        message: 'Mật khẩu cũ không chính xác'
+                        message: 'Old password is incorrect'
                     });
                 }
                 else {
@@ -172,17 +172,17 @@ router.post('/changeinfo', passport.authenticate('jwt', {session: false}), (req,
             // write to database
             userModel.put(entity).then(id => {
                 return res.status(200).json({
-                    message: 'Cập nhật thông tin thành công'
+                    message: 'UPDATE SUCCESS'
                 });
             }).catch(err => {
                 return res.status(400).json({
-                    message: 'Đã xảy ra lỗi, vui lòng thử lại'
+                    message: 'Error! Please try again!'
                 });
             })
             
         }).catch(err => {
             return res.status(400).json({
-                message: 'Đã xảy ra lỗi, vui lòng thử lại'
+                message: 'Error! Please try again!'
             });
         })
     }
